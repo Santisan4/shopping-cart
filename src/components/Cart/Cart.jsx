@@ -8,9 +8,11 @@ export function Cart () {
   const cartCheckboxId = useId()
   const { clearCart, cart, addToCart, lessProduct } = useCart()
 
+  const quantity = cart && cart.reduce((acc, product) => acc + product.quantity, 0)
+
   return (
     <>
-      <div className='items-cart'>{cart.length}</div>
+      <div className='items-cart'>{quantity}</div>
       <label className='cart-button' htmlFor={cartCheckboxId}>
         <CartIcon />
       </label>
